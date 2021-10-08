@@ -1,0 +1,112 @@
+.todo-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    padding: 25px 10px;
+    border-bottom: 2px solid #f2f3f5;
+    cursor: pointer;
+
+    &.completed{
+        color: #aaa;
+    }
+}
+.todo-item .check-box{
+    display: flex;
+    flex-shrink: 0;
+    border: 2px solid #eee;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    margin-right: 20px;
+    transition: background-color 0.2s , border-color 0.2s;
+
+
+    i.material-icons{
+        font-size: 20px;
+        margin: auto;
+        color: #333;
+        //hidden by default
+    opacity: 0;
+    transition: opacity 0.2s;
+        
+    }
+  
+}
+.todo-item:hover .check-box{
+    background: #eee;
+        i.material-icons{
+            opacity: 0.3;
+        }
+    
+}
+
+.todo-item.completed .check-box{
+    background-color: rgb(11, 223, 170);
+    border-color: rgb(11, 223, 170);
+
+    i.material-icons{
+        opacity: 1;
+    }
+}
+
+.todo-item .todo-controls-box{
+  
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    display: flex;
+    //by default its hidden
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(2px);
+    transition: opacity 0.2s , visibility 0.2s , transform 0.2s;
+}
+.todo-item:hover .todo-controls-box{
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.4s;
+    transform: translateY(0);
+   
+}
+.todo-controls-box .todo-control-btn{
+    display: flex;
+    background: #f5f7f8;
+    padding: 7px 10px;
+
+    i.material-icons{
+        color: #555;
+        font-size: 20px;
+    }
+
+    &:hover{
+        background: #eee;
+
+        i.material-icons{
+            color: #333;
+        }
+    }
+    &:active{
+        background: #e5e7e8;
+    }
+
+    &:first-of-type{
+        border-top-left-radius: 7px;
+    }
+    &:last-of-type{
+        border-top-right-radius: 7px;
+    }
+}
+
+.todo-controls-box .todo-control-btn.is-danger:hover i.material-icons{
+    color: rgb(155, 27, 27);
+}
+.todo-controls-box .todo-control-btn.is-danger:active i.material-icons{
+    color: rgb(177, 68, 68);
+}
+.todo-controls-box .todo-control-btn.is-green:hover i.material-icons{
+    color: rgb(32, 139, 68);
+}
+.todo-controls-box .todo-control-btn.is-green:active i.material-icons{
+    color: rgb(67, 165, 100);
+}
